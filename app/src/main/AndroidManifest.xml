@@ -2,11 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.mydemo" >
 
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -16,6 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".swipe.SwipeRefreshActivity"/>
+        <activity android:name=".enu.EnumActivity"/>
+        <activity android:name=".permission.PermissionActivity"/>
+        <activity android:name=".design.DesignActivity"/>
+        <activity android:name=".recItem.RecActivity"/>
+
     </application>
 
 </manifest>
