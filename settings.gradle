@@ -1,1 +1,1 @@
-include ':app', ':msg', ':news'
+include ':app', ':msg', ':news', ':weixin'
