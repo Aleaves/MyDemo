@@ -25,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
         Director director=new Director(builder);
         director.construct("123","456");
 
-        Log.i("===========",builder.onCreate().toString());
-
-
     }
 
     @OnClick(R.id.ll_swipe)
