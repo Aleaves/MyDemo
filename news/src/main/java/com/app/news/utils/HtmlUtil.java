@@ -1,7 +1,5 @@
 package com.app.news.utils;
 
-import android.util.Log;
-
 import com.app.news.bean.NewsDetail;
 
 import java.util.List;

@@ -45,8 +45,8 @@ public class NewsDetailFragment extends BaseFragment{
     CollapsingToolbarLayout mCollapsingToolbarLayout;
     @Bind(R.id.wv_news)
     WebView mWvNews;
-    @Bind(R.id.nested_view)
-    NestedScrollView mNestedView;
+    //@Bind(R.id.nested_view)
+    //NestedScrollView mNestedView;
    /* @Bind(R.id.tv_load_empty)
     TextView mTvLoadEmpty;
     @Bind(R.id.tv_load_error)
@@ -84,7 +84,6 @@ public class NewsDetailFragment extends BaseFragment{
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        //mCollapsingToolbarLayout.setTitl
     }
 
     private void loadData(){
