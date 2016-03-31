@@ -1,5 +1,7 @@
 package com.app.news.bean;
 
+import org.json.JSONObject;
+
 import retrofit.Call;
 import retrofit.http.GET;
 import retrofit.http.Path;
@@ -18,5 +20,9 @@ public interface RestApi {
 
     @GET("story/{id}")
     Call<NewsDetail> getNewsDetail(@Path("id")int id);
+
+
+    @GET("stories/latest")
+    Call<JSONObject> getNews();
 
 }

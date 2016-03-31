@@ -12,7 +12,10 @@ import com.app.news.bean.NewsList;
 import com.app.news.bean.RestApi;
 import com.app.news.bean.TopNews;
 import com.app.news.fragment.NewsListFragment;
+import com.app.news.json.JsonConverterFactory;
 import com.squareup.okhttp.OkHttpClient;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -34,34 +37,33 @@ public class NewsListActivity extends BaseActivity {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fl_container, fragment, NewsListFragment.TAG);
         transaction.commit();
-
-        //net();
+        net();
     }
 
     private void net(){
 
         Retrofit retrofit=new Retrofit.Builder()
                 .baseUrl("http://news-at.zhihu.com/api/4/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(JsonConverterFactory.create())
                 .client(new OkHttpClient())
                 .build();
+
         RestApi restApi=retrofit.create(RestApi.class);
-        Call<NewsList> searchResult=restApi.getLatestNews();
-        searchResult.enqueue(new Callback<NewsList>(){
+        Call<JSONObject> searchResult=restApi.getNews();
+        searchResult.enqueue(new Callback<JSONObject>(){
+
             @Override
-            public void onResponse(Response<NewsList> response, Retrofit retrofit) {
-                Log.i("============",response.body().getDate());
-                List<News> list=response.body().getStories();
-                for (int i=0;i<list.size();i++){
-                    Log.i("==========",list.get(i).getTitle()+"===="+list.get(i).getGa_prefix()+"===="+list.get(i).getId());
-                }
+            public void onResponse(Response<JSONObject> response, Retrofit retrofit) {
+                Log.i("===========",response.headers().toString()+"");
             }
 
             @Override
             public void onFailure(Throwable t) {
                 Log.i("==============",t.toString());
             }
+
         });
+
     }
 
     @Override
